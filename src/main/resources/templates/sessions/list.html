@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}"></head>
+<body>
+
+<div th:replace="~{fragments/navigation :: navigation}"></div>
+
+<main class="container">
+    <div class="row mt-3 mb-3 text-center">
+        <div class="col">
+            <h1>Расписание</h1>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Постер</th>
+                <th scope="col">Фильм</th>
+                <th scope="col">Зал</th>
+                <th scope="col">Начало</th>
+                <th scope="col">Конец</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Действие</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="filmSsession: ${sessions}">
+                <td><img th:src="@{'/' + ${filmSsession.filePath}}" width="100" alt="Постер"></td>
+                <td><b th:text="${filmSsession.filmName}"></b></td>
+                <td th:text="${filmSsession.hallName}"></td>
+                <td th:text="${filmSsession.startTime}"></td>
+                <td th:text="${filmSsession.endTime}"></td>
+                <td th:text="${filmSsession.price}"></td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/tickets/buy/{sessionId}(sessionId=${filmSsession.id})}">Купить
+                        билет</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+</html>

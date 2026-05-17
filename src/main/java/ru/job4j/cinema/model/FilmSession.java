@@ -22,7 +22,8 @@ public class FilmSession {
     private LocalDateTime endTime;
     private int price;
 
-    public FilmSession() {}
+    public FilmSession() {
+    }
 
     public FilmSession(int id, int filmId, int hallsId, LocalDateTime startTime, LocalDateTime endTime, int price) {
         this.id = id;

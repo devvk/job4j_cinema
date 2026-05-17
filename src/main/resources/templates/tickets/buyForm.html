@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}"></head>
+<body>
+
+<div th:replace="~{fragments/navigation :: navigation}"></div>
+
+<main class="container">
+    <div class="row mt-3 mb-3 text-center">
+        <div class="col">
+            <h1>Купить билет</h1>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${filmSession.filmName}"></h5>
+                    <p class="card-text mb-1">
+                        <b>Зал:</b>
+                        <span th:text="${filmSession.hallName}"></span>
+                    </p>
+                    <p class="card-text mb-1">
+                        <b>Начало:</b>
+                        <span th:text="${filmSession.startTime}"></span>
+                    </p>
+                    <p class="card-text mb-1">
+                        <b>Конец:</b>
+                        <span th:text="${filmSession.endTime}"></span>
+                    </p>
+                    <p class="card-text mb-0">
+                        <b>Цена:</b>
+                        <span th:text="${filmSession.price}"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <form th:action="@{/tickets/buy}" method="post">
+                <input type="hidden" name="sessionId" th:value="${filmSession.id}">
+                <div class="row mb-3" th:if="${error}">
+                    <div class="col">
+                        <p class="alert alert-danger" role="alert" th:text="${error}"></p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center mb-4">
+                    <div class="d-flex align-items-center mr-4">
+                        <label for="rowNumber" class="form-label mb-0 mr-2">Ряд</label>
+                        <select class="form-select w-auto" name="rowNumber" id="rowNumber">
+                            <option th:each="row : ${#numbers.sequence(1, rows)}"
+                                    th:value="${row}"
+                                    th:text="${row}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <label for="placeNumber" class="form-label mb-0 mr-2">Место</label>
+                        <select class="form-select w-auto" name="placeNumber" id="placeNumber">
+                            <option th:each="place : ${#numbers.sequence(1, places)}"
+                                    th:value="${place}"
+                                    th:text="${place}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-secondary mr-3" th:href="@{/sessions}">Отменить</a>
+                    <button type="submit" class="btn btn-primary">Купить билет</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+</html>
