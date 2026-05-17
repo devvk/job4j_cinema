@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.Ticket;
+import ru.job4j.cinema.repository.ticket.TicketRepository;
 
 import java.util.Optional;
 

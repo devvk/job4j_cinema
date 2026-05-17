@@ -1,4 +1,4 @@
-package ru.job4j.cinema.repository;
+package ru.job4j.cinema.repository.filmsession;
 
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;

@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:002_dml_insert_files
 INSERT INTO files(name, path)
 VALUES
     (
@@ -20,3 +23,5 @@ VALUES
         'harry_potter.jpg',
         'files/posters/harry_potter.jpg'
     );
+
+--rollback DELETE FROM files;

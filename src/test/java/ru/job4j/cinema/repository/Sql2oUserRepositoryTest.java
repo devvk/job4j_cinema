@@ -8,6 +8,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.User;
+import ru.job4j.cinema.repository.user.UserRepository;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

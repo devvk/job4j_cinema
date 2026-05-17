@@ -8,8 +8,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.job4j.cinema.dto.FilmSessionDto;
 import ru.job4j.cinema.model.Ticket;
 import ru.job4j.cinema.model.User;
-import ru.job4j.cinema.service.FilmSessionService;
-import ru.job4j.cinema.service.TicketService;
+import ru.job4j.cinema.service.filmsession.FilmSessionService;
+import ru.job4j.cinema.service.ticket.TicketService;
 
 import java.util.Optional;
 
@@ -54,7 +54,7 @@ public class TicketController {
         if (savedTicketOptional.isEmpty()) {
             model.addAttribute("message", "Не удалось приобрести билет на заданное место. "
                     + "Вероятно оно уже занято. Перейдите на страницу бронирования билетов и попробуйте снова.");
-            return "errors/404";
+            return "errors/error";
         }
         redirectAttributes.addFlashAttribute("message", "Вы успешно приобрели билет. "
                 + "Ряд: " + rowNumber + ", место: " + placeNumber + ".");

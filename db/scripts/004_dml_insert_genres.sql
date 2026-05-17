@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:004_dml_insert_genres
 INSERT INTO genres(name)
 VALUES
     ('Боевик'),
@@ -10,3 +13,5 @@ VALUES
     ('Приключения'),
     ('Детектив'),
     ('Фэнтези');
+
+--rollback DELETE FROM genres;

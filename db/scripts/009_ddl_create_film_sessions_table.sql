@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:009_ddl_create_film_sessions_table
 CREATE TABLE film_sessions
 (
     id         SERIAL PRIMARY KEY,
@@ -7,3 +10,5 @@ CREATE TABLE film_sessions
     end_time   TIMESTAMP                 NOT NULL,
     price      INT                       NOT NULL
 );
+
+--rollback DROP TABLE film_sessions;

@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:010_dml_insert_film_sessions
 INSERT INTO film_sessions(
     film_id,
     halls_id,
@@ -41,3 +44,5 @@ VALUES
         '2026-05-16 16:32:00',
         18
     );
+
+--rollback DELETE FROM film_sessions;

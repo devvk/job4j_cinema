@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:005_ddl_create_films_table
 CREATE TABLE films
 (
     id                  SERIAL PRIMARY KEY,
@@ -9,3 +12,5 @@ CREATE TABLE films
     duration_in_minutes INT                        NOT NULL,
     file_id             INT REFERENCES files (id)  NOT NULL
 );
+
+--rollback DROP TABLE films;

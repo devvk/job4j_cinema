@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import ru.job4j.cinema.model.Film;
+import ru.job4j.cinema.repository.film.Sql2oFilmRepository;
 
 import java.util.Collection;
 import java.util.Optional;

@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:008_dml_insert_halls
 INSERT INTO halls(name, row_count, place_count, description)
 VALUES
     (
@@ -18,3 +21,5 @@ VALUES
         10,
         'Зал повышенного комфорта'
     );
+
+--rollback DELETE FROM halls;

@@ -8,8 +8,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import ru.job4j.cinema.dto.FilmSessionDto;
 import ru.job4j.cinema.model.Ticket;
 import ru.job4j.cinema.model.User;
-import ru.job4j.cinema.service.FilmSessionService;
-import ru.job4j.cinema.service.TicketService;
+import ru.job4j.cinema.service.filmsession.FilmSessionService;
+import ru.job4j.cinema.service.ticket.TicketService;
 
 import java.util.Optional;
 
@@ -88,7 +88,7 @@ class TicketControllerTest {
                         .param("placeNumber", "1")
                         .sessionAttr("user", new User()))
                 .andExpect(status().isOk())
-                .andExpect(view().name("errors/404"))
+                .andExpect(view().name("errors/error"))
                 .andExpect(model().attributeExists("message"));
     }
 

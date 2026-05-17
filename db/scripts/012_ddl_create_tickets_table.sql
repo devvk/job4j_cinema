@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:012_ddl_create_tickets_table
 CREATE TABLE tickets
 (
     id           SERIAL PRIMARY KEY,
@@ -7,3 +10,6 @@ CREATE TABLE tickets
     user_id      INT                               NOT NULL,
     UNIQUE (session_id, row_number, place_number)
 );
+
+--rollback DROP TABLE tickets;
+

@@ -6,7 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.job4j.cinema.dto.FilmDto;
-import ru.job4j.cinema.service.FilmService;
+import ru.job4j.cinema.service.film.FilmService;
 
 import java.util.List;
 

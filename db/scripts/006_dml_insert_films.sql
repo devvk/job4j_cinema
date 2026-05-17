@@ -1,3 +1,6 @@
+--liquibase formatted sql
+
+--changeset devvk:006_dml_insert_films
 INSERT INTO films(
     name,
     description,
@@ -53,3 +56,5 @@ VALUES
         152,
         5
     );
+
+--rollback DELETE FROM films;
